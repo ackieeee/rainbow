@@ -49,23 +49,19 @@ func (textList *TextList) Print() {
 		p := text.Param
 		c := text.Color
 
-		r := c[1:3]
-		g := c[3:5]
-		b := c[5:7]
-
-		ruint, err := strconv.ParseUint(r, 16, 64)
+		r, err := strconv.ParseUint(c[1:3], 16, 64)
 		if err != nil {
 			panic(err)
 		}
-		guint, err := strconv.ParseUint(g, 16, 64)
+		g, err := strconv.ParseUint(c[3:5], 16, 64)
 		if err != nil {
 			panic(err)
 		}
-		buint, err := strconv.ParseUint(b, 16, 64)
+		b, err := strconv.ParseUint(c[5:7], 16, 64)
 		if err != nil {
 			panic(err)
 		}
 
-		color.RGB(int(ruint), int(guint), int(buint)).Printf(p)
+		color.RGB(int(r), int(g), int(b)).Printf(p)
 	}
 }
